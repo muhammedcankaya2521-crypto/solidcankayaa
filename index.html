@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solid Çankaya İnşaat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--cr:#F5F0EA;--dk:#1C1916;--gd:#B8903C;--gl:#D4AA5C;--bd:rgba(28,25,22,0.1);--mt:#7A746C;--sh:0 2px 20px rgba(28,25,22,0.08)}
+    html{scroll-behavior:smooth}body{overflow-x:hidden;background:#F5F0EA}
+    .sf{font-family:'Playfair Display',Georgia,serif}
+    .nl{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:#1C1916;text-decoration:none;padding:4px 0;position:relative;cursor:pointer;background:none;border:none;transition:color .2s}
+    .nl::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gd);transition:width .3s}
+    .nl:hover::after,.nl.ac::after{width:100%}
+    .nl:hover{color:var(--gd)}
+    .bg{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;background:var(--gd);color:#fff;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s;text-decoration:none}
+    .bg:hover{background:var(--gl);transform:translateY(-1px)}
+    .bo{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;background:transparent;color:#1C1916;font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(28,25,22,.25);cursor:pointer;transition:all .2s}
+    .bo:hover{border-color:var(--gd);color:var(--gd)}
+    .bw{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;background:transparent;color:#fff;font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.4);cursor:pointer;transition:all .2s}
+    .bw:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.8)}
+    .pc{cursor:pointer;overflow:hidden;background:#fff;transition:transform .3s,box-shadow .3s;box-shadow:var(--sh)}
+    .pc:hover{transform:translateY(-5px);box-shadow:0 8px 36px rgba(28,25,22,.13)}
+    .ci{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .6s}
+    .pc:hover .ci{transform:scale(1.04)}
+    .gt{cursor:pointer;overflow:hidden;opacity:.55;transition:opacity .2s;border:2px solid transparent;flex-shrink:0}
+    .gt.ac{opacity:1;border-color:var(--gd)}
+    .gt:hover{opacity:1}
+    .ii{width:100%;padding:11px 14px;border:1px solid rgba(28,25,22,.18);background:#fff;font-family:'DM Sans',sans-serif;font-size:14px;color:#1C1916;outline:none;transition:border-color .2s}
+    .ii:focus{border-color:var(--gd)}
+    .ov{display:block;font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gd);margin-bottom:10px;font-family:'DM Sans',sans-serif}
+    .dv{width:44px;height:1px;background:var(--gd);margin:18px 0}
+    .st{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:400;color:#1C1916;line-height:1.2}
+    .fb{padding:7px 18px;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid rgba(28,25,22,.2);color:#7A746C;cursor:pointer;transition:all .2s}
+    .fb.ac,.fb:hover{background:#1C1916;color:#fff;border-color:#1C1916}
+    .fi{animation:fi .5s ease forwards;opacity:0}
+    @keyframes fi{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .wa{display:inline-flex;align-items:center;gap:9px;padding:15px 28px;background:#25D366;color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;border:none;cursor:pointer;text-decoration:none;transition:opacity .2s}
+    .wa:hover{opacity:.88}
+    .ig{display:inline-flex;align-items:center;gap:9px;padding:15px 28px;background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;border:none;cursor:pointer;text-decoration:none;transition:opacity .2s}
+    .ig:hover{opacity:.88}
+    .sr{display:flex;flex-wrap:wrap}
+    .si{flex:1 1 180px;text-align:center;padding:26px 20px;border-right:1px solid var(--bd)}
+    .si:last-child{border-right:none}
+    @media(max-width:768px){
+      .dg2{grid-template-columns:1fr !important}
+      .sr{flex-direction:column}
+      .si{border-right:none;border-bottom:1px solid var(--bd)}
+      .fg{grid-template-columns:1fr !important}
+      .hnav{display:none !important}
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+const {useState, useEffect} = React;
+
+/* ── AYARLAR ── Buradan WhatsApp ve Instagram bilgilerinizi girin */
+const ADMIN_PASS = "Solid@2024"; // Admin şifresini buradan değiştirebilirsiniz
+
+const DEMO_PROJECTS = [
+  {id:"d1",title:"Panorama Residence",location:"Çankaya, Ankara",category:"Konut",year:2024,
+   description:"Ankara'nın kalbinde, modern mimarinin zarafetini doğanın huzuruyla buluşturan Panorama Residence, 12 katlı 180 adet lüks konuttan oluşmaktadır. Sonsuz yüzme havuzu, spor merkezi, çocuk oyun alanları ve geniş teras ile sakinlerine prestijli bir yaşam sunmaktadır.",
+   images:["https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80",
+           "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80",
+           "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1200&q=80"],
+   videoUrl:"",featured:true,createdAt:"2024-01-15"},
+  {id:"d2",title:"Elite Business Center",location:"Kızılay, Ankara",category:"Ticari",year:2023,
+   description:"İş dünyasının yeni merkezi Elite Business Center, 25 katlı cam-çelik yapısıyla Ankara silüetine muhteşem bir katkı sağlamıştır. A+ ofis standartları, akıllı bina yönetim sistemleri ve 4 konferans salonuyla kurumsal kiracılara en prestijli çalışma ortamını sunmaktadır.",
+   images:["https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=1200&q=80",
+           "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80"],
+   videoUrl:"",featured:true,createdAt:"2023-06-10"},
+  {id:"d3",title:"Yeşilvadi Villaları",location:"Gölbaşı, Ankara",category:"Villa",year:2023,
+   description:"Gölbaşı'nın engin yeşilliklerinde, doğayla iç içe özel bir yaşam sunan Yeşilvadi Villaları 24 adet müstakil villadan oluşmaktadır. Her villada özel bahçe, kapalı garaj, yüzme havuzu ve akıllı ev sistemleri yer almaktadır.",
+   images:["https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=80",
+           "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80"],
+   videoUrl:"",featured:true,createdAt:"2023-03-20"},
+  {id:"d4",title:"Ankara Park Evleri",location:"Etimesgut, Ankara",category:"Konut",year:2022,
+   description:"Şehrin gürültüsünden uzakta, 8 blok ve 320 konuttan oluşan sosyal konut projesi. Geniş yeşil alanlar, çocuk parkları ve spor tesisleriyle aile yaşamını ön planda tutuyor.",
+   images:["https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&q=80"],
+   videoUrl:"",featured:false,createdAt:"2022-09-01"},
+];
+
+const DEF_SET = {wa:"905XXXXXXXXX", ig:"solidcankaya", logoUrl:""};
+
+/* ── SVG İKONLAR ── */
+const WASvg = () => (
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+);
+
+const IGSvg = () => (
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+  </svg>
+);
+
+/* ── LOGO BİLEŞENİ ── */
+function Logo({style, logoUrl}) {
+  return (
+    <div style={{display:"flex",alignItems:"center",gap:9,...style}}>
+      {logoUrl
+        ? <img src={logoUrl} alt="logo" style={{height:38,width:"auto",objectFit:"contain"}}/>
+        : <div style={{width:34,height:34,background:"#1C1916",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+            <span style={{color:"#B8903C",fontFamily:"'Playfair Display',serif",fontSize:15,fontWeight:700}}>S</span>
+          </div>
+      }
+      <div>
+        <div style={{fontFamily:"'Playfair Display',serif",fontSize:15,fontWeight:600,color:"#1C1916",letterSpacing:".06em",lineHeight:1}}>SOLID</div>
+        <div style={{fontFamily:"'DM Sans',sans-serif",fontSize:8,fontWeight:400,color:"#B8903C",letterSpacing:".3em",textTransform:"uppercase"}}>ÇANKAYA</div>
+      </div>
+    </div>
+  );
+}
+
+/* ── YOUTUBE EMBED ── */
+function getEmbed(url) {
+  if (!url) return "";
+  if (url.includes("youtube.com/watch?v=")) return "https://www.youtube.com/embed/" + url.split("v=")[1].split("&")[0];
+  if (url.includes("youtu.be/")) return "https://www.youtube.com/embed/" + url.split("youtu.be/")[1];
+  return url;
+}
+
+/* ── ANA UYGULAMA ── */
+function App() {
+  const [pg, setPg]     = useState("home");
+  const [sel, setSel]   = useState(null);
+  const [projs, setProjs] = useState([]);
+  const [cmts, setCmts] = useState({});
+  const [sets, setSets] = useState(DEF_SET);
+  const [loading, setLoading] = useState(true);
+  const [aImg, setAImg] = useState(0);
+  const [flt, setFlt]   = useState("Tümü");
+
+  // Admin
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [aPW, setAPW]   = useState("");
+  const [aErr, setAErr] = useState("");
+  const [aView, setAView] = useState("list");
+  const [aTab, setATab] = useState("projects");
+  const [editId, setEditId] = useState(null);
+  const [form, setForm] = useState(ef());
+  const [imgUrl, setImgUrl] = useState("");
+
+  // Yorum
+  const [cn, setCn] = useState("");
+  const [ct, setCt] = useState("");
+  const [cOk, setCOk] = useState(false);
+
+  function ef() {
+    return {title:"",location:"",category:"Konut",year:new Date().getFullYear(),description:"",images:[],videoUrl:"",featured:false};
+  }
+
+  useEffect(() => { init(); }, []);
+
+  function init() {
+    try {
+      const pr = localStorage.getItem("sc_projs");
+      if (pr) setProjs(JSON.parse(pr));
+      else { setProjs(DEMO_PROJECTS); localStorage.setItem("sc_projs", JSON.stringify(DEMO_PROJECTS)); }
+      const cr = localStorage.getItem("sc_cmts");
+      if (cr) setCmts(JSON.parse(cr));
+      const sr = localStorage.getItem("sc_sets");
+      if (sr) setSets(JSON.parse(sr));
+    } catch { setProjs(DEMO_PROJECTS); }
+    setLoading(false);
+  }
+
+  function svP(p) { setProjs(p); try { localStorage.setItem("sc_projs", JSON.stringify(p)); } catch {} }
+  function svC(c) { setCmts(c);  try { localStorage.setItem("sc_cmts",  JSON.stringify(c)); } catch {} }
+  function svS(s) { setSets(s);  try { localStorage.setItem("sc_sets",  JSON.stringify(s)); } catch {} }
+
+  function nav(p, pr = null) {
+    setPg(p);
+    if (pr) { setSel(pr); setAImg(0); }
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  function login() {
+    if (aPW === ADMIN_PASS) { setIsAdmin(true); setAErr(""); }
+    else setAErr("Hatalı şifre. Lütfen tekrar deneyin.");
+  }
+
+  function submitCmt(e) {
+    e.preventDefault();
+    if (!cn.trim() || !ct.trim()) return;
+    const nc = {
+      id: Date.now()+"", name: cn.trim(), text: ct.trim(),
+      date: new Date().toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"})
+    };
+    const pid = sel.id;
+    const nc2 = {...cmts, [pid]: [...(cmts[pid]||[]), nc]};
+    svC(nc2);
+    setCn(""); setCt(""); setCOk(true);
+    setTimeout(() => setCOk(false), 4000);
+  }
+
+  function startAdd()   { setForm(ef()); setEditId(null); setAView("add"); }
+  function startEdit(p) { setForm({...p}); setEditId(p.id); setAView("add"); }
+
+  function saveProj() {
+    if (!form.title.trim()) return;
+    let np;
+    if (editId) np = projs.map(p => p.id === editId ? {...form, id:editId} : p);
+    else np = [...projs, {...form, id:Date.now()+"", createdAt:new Date().toISOString()}];
+    svP(np);
+    setAView("list");
+  }
+
+  function delProj(id) {
+    if (!confirm("Bu projeyi silmek istediğinizden emin misiniz?")) return;
+    svP(projs.filter(p => p.id !== id));
+  }
+
+  function upImg(e) {
+    Array.from(e.target.files).forEach(f => {
+      const r = new FileReader();
+      r.onload = ev => setForm(p => ({...p, images:[...p.images, ev.target.result]}));
+      r.readAsDataURL(f);
+    });
+  }
+
+  function addImgUrl() {
+    if (imgUrl.trim()) { setForm(p => ({...p, images:[...p.images, imgUrl.trim()]})); setImgUrl(""); }
+  }
+
+  function rmImg(i) { setForm(p => ({...p, images:p.images.filter((_,x) => x !== i)})); }
+
+  const cats = ["Tümü", ...new Set(projs.map(p => p.category))];
+  const fProjs = flt === "Tümü" ? projs : projs.filter(p => p.category === flt);
+
+  const PAD = "0 clamp(24px,5vw,80px)";
+
+  if (loading) return (
+    <div style={{display:"flex",alignItems:"center",justifyContent:"center",height:"100vh",background:"#1C1916",color:"#B8903C",fontFamily:"'Playfair Display',serif",fontSize:"1.5rem",letterSpacing:".3em"}}>
+      SOLID ÇANKAYA
+    </div>
+  );
+
+  return (
+    <div style={{fontFamily:"'DM Sans',system-ui,sans-serif",background:"#F5F0EA",color:"#1C1916",minHeight:"100vh"}}>
+
+      {/* ── NAVBAR ── */}
+      <nav style={{position:"sticky",top:0,zIndex:100,background:"rgba(245,240,234,0.97)",backdropFilter:"blur(12px)",borderBottom:"1px solid rgba(28,25,22,.09)",padding:PAD}}>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",height:68,maxWidth:1280,margin:"0 auto"}}>
+          <button onClick={()=>nav("home")} style={{background:"none",border:"none",cursor:"pointer",padding:0}}>
+            <Logo logoUrl={sets.logoUrl}/>
+          </button>
+          <div className="hnav" style={{display:"flex",alignItems:"center",gap:28}}>
+            {[["home","Anasayfa"],["projects","Projeler"],["about","Hakkımızda"],["contact","İletişim"]].map(([p,l]) => (
+              <button key={p} onClick={()=>nav(p)} className={`nl ${pg===p?"ac":""}`}>{l}</button>
+            ))}
+          </div>
+          <div style={{display:"flex",alignItems:"center",gap:16}}>
+            <a href={`https://wa.me/${sets.wa}`} target="_blank" style={{color:"#1C1916",opacity:.65,lineHeight:0,textDecoration:"none"}} title="WhatsApp"><WASvg/></a>
+            <a href={`https://instagram.com/${sets.ig}`} target="_blank" style={{color:"#1C1916",opacity:.65,lineHeight:0,textDecoration:"none"}} title="Instagram"><IGSvg/></a>
+            {/* Admin girişi - küçük ve gizli */}
+            <button onClick={()=>nav("admin")} title="Yönetim Paneli" style={{background:"none",border:"none",cursor:"pointer",opacity:.15,fontSize:9,color:"#1C1916",letterSpacing:".1em",fontFamily:"'DM Sans',sans-serif"}}>⬛</button>
+          </div>
+        </div>
+        {/* Mobil nav */}
+        <div style={{display:"none",gap:16,paddingBottom:12,flexWrap:"wrap"}} id="mnav">
+          {[["home","Anasayfa"],["projects","Projeler"],["about","Hakkımızda"],["contact","İletişim"]].map(([p,l]) => (
+            <button key={p} onClick={()=>nav(p)} className={`nl ${pg===p?"ac":""}`}>{l}</button>
+          ))}
+        </div>
+      </nav>
+
+      {/* ── ANASAYFA ── */}
+      {pg==="home" && <>
+        {/* Hero */}
+        <div style={{position:"relative",height:"90vh",minHeight:480,overflow:"hidden"}}>
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85" alt="hero"
+            style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover"}}/>
+          <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(28,25,22,.15) 0%,rgba(28,25,22,.45) 40%,rgba(28,25,22,.8) 100%)"}}/>
+          <div style={{position:"relative",zIndex:2,height:"100%",display:"flex",flexDirection:"column",justifyContent:"flex-end",padding:`clamp(40px,6vw,90px) clamp(24px,5vw,80px)`}}>
+            <span className="ov" style={{color:"#D4AA5C",fontSize:10}}>Ankara'nın Güvenilir İnşaat Firması</span>
+            <h1 className="sf" style={{fontSize:"clamp(2.4rem,5vw,4.2rem)",fontWeight:400,color:"#fff",lineHeight:1.1,maxWidth:640,marginBottom:18}}>
+              Kalıcı Yapılar,<br/><em>Yaşayan Değerler</em>
+            </h1>
+            <p style={{color:"rgba(255,255,255,.72)",fontSize:15,maxWidth:420,lineHeight:1.85,marginBottom:32,fontWeight:300}}>
+              Solid Çankaya olarak konut, ticari ve villa projelerinde Ankara'nın en prestijli adreslerini inşa ediyoruz.
+            </p>
+            <div style={{display:"flex",gap:14,flexWrap:"wrap"}}>
+              <button className="bg" onClick={()=>nav("projects")}>Projelerimizi İnceleyin</button>
+              <button className="bw" onClick={()=>nav("contact")}>İletişime Geçin</button>
+            </div>
+          </div>
+        </div>
+
+        {/* İstatistikler */}
+        <div style={{background:"#fff",borderBottom:"1px solid var(--bd)"}}>
+          <div style={{maxWidth:1280,margin:"0 auto"}} className="sr">
+            {[["25+","Yıllık Deneyim"],["180+","Tamamlanan Proje"],["4500+","Mutlu Aile"],["12","Prestij Ödülü"]].map(([n,l]) => (
+              <div key={l} className="si">
+                <div className="sf" style={{fontSize:"2.2rem",fontWeight:600,color:"#B8903C",lineHeight:1}}>{n}</div>
+                <div style={{fontSize:12,color:"#7A746C",marginTop:6,letterSpacing:".05em"}}>{l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Öne Çıkan Projeler */}
+        <div style={{padding:`70px clamp(24px,5vw,80px)`,maxWidth:1280,margin:"0 auto"}}>
+          <div style={{marginBottom:44}}>
+            <span className="ov">Seçili Çalışmalar</span>
+            <h2 className="st">Öne Çıkan Projeler</h2>
+            <div className="dv"/>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(300px,1fr))",gap:24}}>
+            {projs.filter(p=>p.featured).slice(0,6).map((p,i) => (
+              <div key={p.id} className="pc fi" style={{animationDelay:`${i*.08}s`}} onClick={()=>nav("project",p)}>
+                <div style={{overflow:"hidden"}}>
+                  <img className="ci" src={p.images[0]||"https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700"} alt={p.title}/>
+                </div>
+                <div style={{padding:"18px 20px 22px"}}>
+                  <div style={{display:"flex",justifyContent:"space-between",marginBottom:6}}>
+                    <span style={{fontSize:10,letterSpacing:".18em",textTransform:"uppercase",color:"#B8903C",fontWeight:500}}>{p.category}</span>
+                    <span style={{fontSize:12,color:"#7A746C"}}>{p.year}</span>
+                  </div>
+                  <h3 className="sf" style={{fontSize:"1.15rem",fontWeight:600,marginBottom:3}}>{p.title}</h3>
+                  <p style={{fontSize:12,color:"#7A746C"}}>{p.location}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          {projs.length > projs.filter(p=>p.featured).length && (
+            <div style={{textAlign:"center",marginTop:44}}>
+              <button className="bo" onClick={()=>nav("projects")}>Tüm Projeleri Görüntüle →</button>
+            </div>
+          )}
+        </div>
+
+        {/* CTA Bandı */}
+        <div style={{background:"#1C1916",padding:`60px clamp(24px,5vw,80px)`,textAlign:"center"}}>
+          <span className="ov" style={{color:"#B8903C"}}>Hayalinizdeki Projeyi Birlikte Hayata Geçirelim</span>
+          <h2 className="sf" style={{fontSize:"clamp(1.7rem,3vw,2.5rem)",fontWeight:400,color:"#fff",marginBottom:14,fontStyle:"italic"}}>
+            Bizimle İletişime Geçin
+          </h2>
+          <p style={{color:"rgba(255,255,255,.6)",fontSize:14,maxWidth:420,margin:"0 auto 28px",lineHeight:1.85}}>
+            Projeleriniz için ücretsiz danışmanlık alın. Ekibimiz size en kısa sürede dönüş yapacaktır.
+          </p>
+          <div style={{display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap"}}>
+            <a href={`https://wa.me/${sets.wa}`} target="_blank" className="wa"><WASvg/>WhatsApp ile Yazın</a>
+            <a href={`https://instagram.com/${sets.ig}`} target="_blank" className="ig"><IGSvg/>Instagram'da Takip Edin</a>
+          </div>
+        </div>
+      </>}
+
+      {/* ── PROJELER ── */}
+      {pg==="projects" && (
+        <div style={{padding:`56px clamp(24px,5vw,80px)`,maxWidth:1280,margin:"0 auto",minHeight:"80vh"}}>
+          <div style={{marginBottom:36}}>
+            <span className="ov">Portfolyo</span>
+            <h1 className="st">Tüm Projelerimiz</h1>
+            <div className="dv"/>
+          </div>
+          <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:32}}>
+            {cats.map(c => <button key={c} className={`fb ${flt===c?"ac":""}`} onClick={()=>setFlt(c)}>{c}</button>)}
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(290px,1fr))",gap:22}}>
+            {fProjs.map((p,i) => (
+              <div key={p.id} className="pc fi" style={{animationDelay:`${i*.06}s`}} onClick={()=>nav("project",p)}>
+                <div style={{overflow:"hidden"}}>
+                  <img className="ci" src={p.images[0]||"https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700"} alt={p.title}/>
+                </div>
+                <div style={{padding:"16px 18px 20px"}}>
+                  <div style={{display:"flex",justifyContent:"space-between",marginBottom:5}}>
+                    <span style={{fontSize:10,letterSpacing:".18em",textTransform:"uppercase",color:"#B8903C",fontWeight:500}}>{p.category}</span>
+                    <span style={{fontSize:11,color:"#7A746C"}}>{p.year}</span>
+                  </div>
+                  <h3 className="sf" style={{fontSize:"1.1rem",fontWeight:600,marginBottom:3}}>{p.title}</h3>
+                  <p style={{fontSize:12,color:"#7A746C"}}>{p.location}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          {fProjs.length === 0 && (
+            <p style={{textAlign:"center",padding:"60px 0",color:"#7A746C"}}>Bu kategoride proje bulunamadı.</p>
+          )}
+        </div>
+      )}
+
+      {/* ── PROJE DETAY ── */}
+      {pg==="project" && sel && (() => {
+        const p = sel;
+        const pc = cmts[p.id] || [];
+        return (
+          <div>
+            {/* Hero Görsel */}
+            <div style={{position:"relative",height:"54vh",minHeight:340,overflow:"hidden"}}>
+              <img src={p.images[aImg]||p.images[0]||""} alt={p.title}
+                style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover"}}/>
+              <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(0,0,0,.1),rgba(0,0,0,.65))"}}/>
+              <div style={{position:"absolute",bottom:0,left:0,right:0,padding:`clamp(20px,4vw,56px) clamp(24px,5vw,80px)`,zIndex:2}}>
+                <button onClick={()=>nav("projects")} style={{background:"none",border:"1px solid rgba(255,255,255,.4)",color:"#fff",padding:"6px 14px",fontFamily:"'DM Sans',sans-serif",fontSize:11,letterSpacing:".1em",cursor:"pointer",marginBottom:14}}>
+                  ← Projelere Dön
+                </button>
+                <h1 className="sf" style={{fontSize:"clamp(1.7rem,4vw,2.8rem)",fontWeight:400,color:"#fff",marginBottom:8}}>{p.title}</h1>
+                <div style={{display:"flex",gap:14,flexWrap:"wrap",alignItems:"center"}}>
+                  <span style={{color:"#D4AA5C",fontSize:11,letterSpacing:".18em",textTransform:"uppercase",fontWeight:500}}>{p.category}</span>
+                  <span style={{color:"rgba(255,255,255,.4)"}}>·</span>
+                  <span style={{color:"rgba(255,255,255,.8)",fontSize:13}}>{p.location}</span>
+                  <span style={{color:"rgba(255,255,255,.4)"}}>·</span>
+                  <span style={{color:"rgba(255,255,255,.8)",fontSize:13}}>{p.year}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Galeri Küçük Resimler */}
+            {p.images.length > 1 && (
+              <div style={{background:"#fff",padding:"14px clamp(24px,5vw,80px)",display:"flex",gap:8,overflowX:"auto",borderBottom:"1px solid var(--bd)"}}>
+                {p.images.map((img,i) => (
+                  <div key={i} className={`gt ${i===aImg?"ac":""}`} style={{width:78,height:54}} onClick={()=>setAImg(i)}>
+                    <img src={img} alt="" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}}/>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* İçerik */}
+            <div style={{maxWidth:1280,margin:"0 auto",padding:`56px clamp(24px,5vw,80px)`}}>
+              <div className="dg2" style={{display:"grid",gridTemplateColumns:"1fr 300px",gap:52}}>
+                <div>
+                  {p.videoUrl && (
+                    <div style={{marginBottom:36}}>
+                      <span className="ov">Proje Videosu</span>
+                      <div style={{position:"relative",paddingBottom:"56.25%",height:0,overflow:"hidden",background:"#000"}}>
+                        <iframe src={getEmbed(p.videoUrl)} style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:"none"}} allowFullScreen title={p.title}/>
+                      </div>
+                    </div>
+                  )}
+                  <span className="ov">Proje Hakkında</span>
+                  <p style={{fontSize:15,lineHeight:1.9,color:"#3A352F",fontWeight:300}}>{p.description}</p>
+
+                  {p.images.length > 1 && (
+                    <div style={{marginTop:44}}>
+                      <span className="ov">Proje Görselleri</span>
+                      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(200px,1fr))",gap:12}}>
+                        {p.images.map((img,i) => (
+                          <img key={i} src={img} alt="" style={{width:"100%",aspectRatio:"4/3",objectFit:"cover",cursor:"pointer"}} onClick={()=>setAImg(i)}/>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Proje Bilgi Kartı */}
+                <div>
+                  <div style={{background:"#1C1916",padding:28,color:"#fff",position:"sticky",top:80}}>
+                    <h3 className="sf" style={{fontSize:"1rem",fontWeight:400,marginBottom:22,color:"#D4AA5C",letterSpacing:".12em"}}>PROJE BİLGİLERİ</h3>
+                    {[["Proje",p.title],["Konum",p.location],["Kategori",p.category],["Yıl",p.year]].map(([k,v]) => (
+                      <div key={k} style={{borderBottom:"1px solid rgba(255,255,255,.09)",paddingBottom:13,marginBottom:13}}>
+                        <div style={{fontSize:10,color:"rgba(255,255,255,.38)",letterSpacing:".18em",textTransform:"uppercase",marginBottom:4}}>{k}</div>
+                        <div style={{fontSize:13,color:"#fff"}}>{v}</div>
+                      </div>
+                    ))}
+                    <a href={`https://wa.me/${sets.wa}`} target="_blank" className="wa"
+                      style={{width:"100%",justifyContent:"center",fontSize:12,marginTop:20,padding:"13px 20px",textDecoration:"none"}}>
+                      <WASvg/>Bilgi Alın
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* YORUMLAR */}
+              <div style={{marginTop:68,borderTop:"1px solid var(--bd)",paddingTop:56}}>
+                <span className="ov">Yorumlar</span>
+                <h2 className="st" style={{fontSize:"1.7rem",marginBottom:6}}>Müşteri Görüşleri</h2>
+                <div className="dv"/>
+
+                <form onSubmit={submitCmt} style={{background:"#fff",padding:28,marginBottom:36,boxShadow:"0 2px 14px rgba(28,25,22,.06)"}}>
+                  <h3 style={{fontSize:12,letterSpacing:".12em",textTransform:"uppercase",marginBottom:18,fontWeight:500}}>Yorum Bırakın</h3>
+                  <input className="ii" placeholder="Adınız Soyadınız *" value={cn} onChange={e=>setCn(e.target.value)} required style={{marginBottom:12}}/>
+                  <textarea className="ii" placeholder="Yorumunuzu yazın... *" rows={3} value={ct} onChange={e=>setCt(e.target.value)} required style={{resize:"vertical",marginBottom:14}}/>
+                  <div style={{display:"flex",alignItems:"center",gap:14,flexWrap:"wrap"}}>
+                    <button type="submit" className="bg">Yorumu Gönder</button>
+                    {cOk && <span style={{color:"#3B6D11",fontSize:13,fontWeight:500}}>✓ Teşekkürler, yorumunuz eklendi!</span>}
+                  </div>
+                </form>
+
+                {pc.length === 0
+                  ? <p style={{color:"#7A746C",fontSize:14}}>Henüz yorum yapılmamış. İlk yorumu siz bırakın!</p>
+                  : <div style={{display:"flex",flexDirection:"column",gap:16}}>
+                      {pc.map(c => (
+                        <div key={c.id} style={{background:"#fff",padding:"22px 26px",borderLeft:"3px solid #B8903C",boxShadow:"0 1px 8px rgba(28,25,22,.04)"}}>
+                          <div style={{display:"flex",justifyContent:"space-between",marginBottom:10,flexWrap:"wrap",gap:8}}>
+                            <div style={{display:"flex",alignItems:"center",gap:10}}>
+                              <div style={{width:34,height:34,borderRadius:"50%",background:"#1C1916",display:"flex",alignItems:"center",justifyContent:"center",color:"#B8903C",fontFamily:"serif",fontSize:13,fontWeight:700,flexShrink:0}}>
+                                {c.name.charAt(0).toUpperCase()}
+                              </div>
+                              <span style={{fontWeight:500,fontSize:14}}>{c.name}</span>
+                            </div>
+                            <span style={{fontSize:11,color:"#7A746C"}}>{c.date}</span>
+                          </div>
+                          <p style={{fontSize:14,lineHeight:1.75,color:"#3A352F"}}>{c.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                }
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* ── HAKKIMIZDA ── */}
+      {pg==="about" && (
+        <div>
+          <div style={{position:"relative",height:"38vh",overflow:"hidden"}}>
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80" alt=""
+              style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover"}}/>
+            <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(28,25,22,.3),rgba(28,25,22,.7))"}}/>
+            <div style={{position:"relative",zIndex:2,height:"100%",display:"flex",flexDirection:"column",justifyContent:"center",padding:`clamp(24px,5vw,80px)`}}>
+              <span className="ov" style={{color:"#D4AA5C"}}>Kimiz?</span>
+              <h1 className="sf" style={{fontSize:"clamp(2rem,4vw,3rem)",fontWeight:400,color:"#fff"}}>Hakkımızda</h1>
+            </div>
+          </div>
+          <div style={{maxWidth:1280,margin:"0 auto",padding:`70px clamp(24px,5vw,80px)`}}>
+            <div className="dg2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:56,alignItems:"center"}}>
+              <div>
+                <span className="ov">Solid Çankaya İnşaat</span>
+                <h2 className="st">25 Yıllık Güven ve Kalite</h2>
+                <div className="dv"/>
+                <p style={{fontSize:14,lineHeight:1.9,color:"#3A352F",marginBottom:18}}>
+                  1999 yılında Ankara'da kurulan Solid Çankaya İnşaat, konut, ticari yapı ve villa projelerinde Ankara ve çevresinin en saygın firmalarından biri haline gelmiştir.
+                </p>
+                <p style={{fontSize:14,lineHeight:1.9,color:"#3A352F",marginBottom:30}}>
+                  Her projede kaliteli malzeme kullanımı, zamanında teslimat ve müşteri memnuniyetini ön planda tutarak geleceğe taşınan yapılar inşa ediyoruz. TSE belgeli üretim süreçleri ve ISO 9001 kalite standartlarıyla her projede mükemmelliği hedefliyoruz.
+                </p>
+                <button className="bg" onClick={()=>nav("contact")}>Bizimle Çalışın</button>
+              </div>
+              <div>
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="about"
+                  style={{width:"100%",aspectRatio:"4/3",objectFit:"cover"}}/>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── İLETİŞİM ── */}
+      {pg==="contact" && (
+        <div>
+          <div style={{background:"#1C1916",padding:`70px clamp(24px,5vw,80px) 48px`}}>
+            <div style={{maxWidth:1280,margin:"0 auto"}}>
+              <span className="ov" style={{color:"#B8903C"}}>Bize Ulaşın</span>
+              <h1 className="sf" style={{fontSize:"clamp(1.8rem,4vw,3rem)",fontWeight:400,color:"#fff",marginBottom:12}}>İletişim</h1>
+              <div className="dv"/>
+            </div>
+          </div>
+          <div style={{maxWidth:1280,margin:"0 auto",padding:`56px clamp(24px,5vw,80px)`}}>
+            <div className="dg2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:52}}>
+              <div>
+                <h2 className="sf" style={{fontSize:"1.5rem",fontWeight:400,marginBottom:28}}>Hızlı İletişim</h2>
+                <div style={{display:"flex",flexDirection:"column",gap:14,marginBottom:36}}>
+                  <a href={`https://wa.me/${sets.wa}`} target="_blank" className="wa" style={{justifyContent:"center",padding:"18px 28px",fontSize:14}}><WASvg/>WhatsApp ile Hemen Yazın</a>
+                  <a href={`https://instagram.com/${sets.ig}`} target="_blank" className="ig" style={{justifyContent:"center",padding:"18px 28px",fontSize:14}}><IGSvg/>Instagram'da Bizi Takip Edin</a>
+                </div>
+                <div style={{background:"#fff",padding:26,border:"1px solid var(--bd)"}}>
+                  <h3 style={{fontSize:11,letterSpacing:".15em",textTransform:"uppercase",marginBottom:16,fontWeight:500}}>Adres & İletişim</h3>
+                  {[["📍","Adres","Çankaya Mah. Atatürk Bulvarı No:XX, Çankaya / Ankara"],
+                    ["📞","Telefon","+90 (312) XXX XX XX"],
+                    ["✉️","E-posta","info@solidcankaya.com"]].map(([ic,lb,vl]) => (
+                    <div key={lb} style={{display:"flex",gap:12,marginBottom:16}}>
+                      <span>{ic}</span>
+                      <div>
+                        <div style={{fontSize:10,color:"#7A746C",letterSpacing:".12em",textTransform:"uppercase",marginBottom:2}}>{lb}</div>
+                        <div style={{fontSize:13}}>{vl}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div style={{background:"#e8e2db",display:"flex",alignItems:"center",justifyContent:"center",minHeight:340,border:"1px solid var(--bd)"}}>
+                <div style={{textAlign:"center",color:"#7A746C"}}>
+                  <div style={{fontSize:36,marginBottom:10}}>📍</div>
+                  <p style={{fontSize:14,fontWeight:500}}>Google Maps Buraya Eklenecek</p>
+                  <p style={{fontSize:12,marginTop:6,opacity:.7}}>index.html'de iframe kodu ekleyebilirsiniz</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── ADMİN PANELİ ── */}
+      {pg==="admin" && (
+        <div style={{minHeight:"80vh",padding:`56px clamp(20px,4vw,56px)`}}>
+          {!isAdmin ? (
+            <div style={{maxWidth:380,margin:"0 auto",paddingTop:40}}>
+              <span className="ov">Yönetim Paneli</span>
+              <h2 className="sf" style={{fontSize:"2rem",fontWeight:400,marginBottom:28}}>Giriş</h2>
+              <input className="ii" type="password" placeholder="Şifre giriniz" value={aPW}
+                onChange={e=>setAPW(e.target.value)} onKeyDown={e=>e.key==="Enter"&&login()} style={{marginBottom:10}}/>
+              {aErr && <p style={{color:"#A32D2D",fontSize:13,marginBottom:10}}>{aErr}</p>}
+              <button className="bg" onClick={login}>Giriş Yap</button>
+            </div>
+          ) : (
+            <div style={{maxWidth:960,margin:"0 auto"}}>
+              <div style={{display:"flex",gap:0,marginBottom:28,borderBottom:"1px solid var(--bd)"}}>
+                {[["projects","📁 Projeler"],["settings","⚙️ Ayarlar"]].map(([t,l]) => (
+                  <button key={t} onClick={()=>{setATab(t);setAView("list");}}
+                    style={{padding:"10px 22px",background:aTab===t?"#1C1916":"none",color:aTab===t?"#fff":"#7A746C",border:"none",cursor:"pointer",fontSize:13,fontFamily:"'DM Sans',sans-serif"}}>
+                    {l}
+                  </button>
+                ))}
+                <div style={{flex:1}}/>
+                <button onClick={()=>{setIsAdmin(false);nav("home");}} style={{padding:"10px 22px",background:"none",border:"none",cursor:"pointer",fontSize:13,color:"#A32D2D",fontFamily:"'DM Sans',sans-serif"}}>
+                  Çıkış Yap
+                </button>
+              </div>
+
+              {/* Projeler Sekmesi */}
+              {aTab==="projects" && (aView==="add" ? (
+                <div>
+                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:28}}>
+                    <h2 className="sf" style={{fontSize:"1.7rem",fontWeight:400}}>{editId?"Projeyi Düzenle":"Yeni Proje Ekle"}</h2>
+                    <button className="bo" onClick={()=>setAView("list")}>← Listeye Dön</button>
+                  </div>
+                  <div style={{display:"flex",flexDirection:"column",gap:14}}>
+                    <div className="fg" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
+                      <div>
+                        <label style={{fontSize:10,letterSpacing:".15em",textTransform:"uppercase",color:"#7A746C",display:"block",marginBottom:5}}>Proje Adı *</label>
+                        <input className="ii" value={form.title} onChange={e=>setForm(p=>({...p,title:e.target.value}))} placeholder="Proje adını girin"/>
+                      </div>
+                      <div>
+                        <label style={{fontSize:10,letterSpacing:".15em",textTransform:"uppercase",color:"#7A746C",display:"block",marginBottom:5}}>Konum</label>
+                        <input className="ii" value={form.location} onChange={e=>setForm(p=>({...p,location:e.target.value}))} placeholder="Şehir, İlçe"/>
+                      </div>
+                    </div>
+                    <div className="fg" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
+                      <div>
+                        <label style={{fontSize:10,letterSpacing:".15em",textTransform:"uppercase",color:"#7A746C",display:"block",marginBottom:5}}>Kategori</label>
+                        <select className="ii" value={form.category} onChange={e=>setForm(p=>({...p,category:e.target.value}))}>
+                          {["Konut","Ticari","Villa","Rezidans","Diğer"].map(c=><option key={c}>{c}</option>)}
+                        </select>
+                      </div>
+                      <div>
+                        <label style={{fontSize:10,letterSpacing:".15em",textTransform:"uppercase",color:"#7A746C",display:"block",marginBottom:5}}>Yıl</label>
+                        <input className="ii" type="number" value={form.year} onChange={e=>setForm(p=>({...p,year:+e.target.value}))}/>
+                      </div>
+                    </div>
+                    <div>
+                      <label style={{fontSize:10,letterSpacing:".15em",textTransform:"uppercase",color:"#7A746C",display:"block",marginBottom:5}}>Açıklama</label>
+                      <textarea className="ii" rows={5} value={form.description} onChange={e=>setForm(p=>({...p,description:e.target.value}))} placeholder="Proje açıklaması..." style={{resize:"vertical"}}/>
+                    </div>
+                    <div>
+                      <label style={{fontSize:10,letterSpacing:".15em",textTransform:"uppercase",color:"#7A746C",display:"block",marginBottom:5}}>YouTube Video URL'si</label>
+                      <input className="ii" value={form.videoUrl} onChange={e=>setForm(p=>({...p,videoUrl:e.target.value}))} placeholder="https://www.youtube.com/watch?v=..."/>
+                    </div>
+                    <div>
+                      <label style={{fontSize:10,letterSpacing:".15em",textTransform:"uppercase",color:"#7A746C",display:"block",marginBottom:8}}>Görseller</label>
+                      <label style={{display:"inline-flex",alignItems:"center",gap:7,padding:"9px 18px",border:"1px dashed rgba(28,25,22,.3)",cursor:"pointer",fontSize:13,color:"#7A746C",marginBottom:10}}>
+                        + Bilgisayardan Yükle
+                        <input type="file" multiple accept="image/*" onChange={upImg} style={{display:"none"}}/>
+                      </label>
+                      <div style={{display:"flex",gap:8,marginBottom:10}}>
+                        <input className="ii" placeholder="Görsel URL'si (https://...)" value={imgUrl} onChange={e=>setImgUrl(e.target.value)} onKeyDown={e=>e.key==="Enter"&&addImgUrl()} style={{flex:1}}/>
+                        <button className="bo" onClick={addImgUrl}>Ekle</button>
+                      </div>
+                      {form.images.length > 0 && (
+                        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(90px,1fr))",gap:8}}>
+                          {form.images.map((img,i) => (
+                            <div key={i} style={{position:"relative"}}>
+                              <img src={img} alt="" style={{width:"100%",height:64,objectFit:"cover"}}/>
+                              <button onClick={()=>rmImg(i)} style={{position:"absolute",top:2,right:2,background:"rgba(163,45,45,.9)",color:"#fff",border:"none",cursor:"pointer",width:18,height:18,fontSize:11,lineHeight:1}}>×</button>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <label style={{display:"flex",alignItems:"center",gap:9,cursor:"pointer",fontSize:14}}>
+                      <input type="checkbox" checked={form.featured} onChange={e=>setForm(p=>({...p,featured:e.target.checked}))}/>
+                      Anasayfada Öne Çıkar
+                    </label>
+                    <div style={{display:"flex",gap:10,marginTop:6}}>
+                      <button className="bg" onClick={saveProj}>{editId?"Değişiklikleri Kaydet":"Projeyi Ekle"}</button>
+                      <button className="bo" onClick={()=>setAView("list")}>İptal</button>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:22}}>
+                    <h2 className="sf" style={{fontSize:"1.7rem",fontWeight:400}}>Projeler ({projs.length})</h2>
+                    <button className="bg" onClick={startAdd}>+ Yeni Proje Ekle</button>
+                  </div>
+                  <div style={{display:"flex",flexDirection:"column",gap:10}}>
+                    {projs.map(p => (
+                      <div key={p.id} style={{background:"#fff",padding:"16px 20px",display:"flex",alignItems:"center",gap:14,boxShadow:"0 1px 8px rgba(28,25,22,.05)"}}>
+                        {p.images[0] && <img src={p.images[0]} alt="" style={{width:68,height:48,objectFit:"cover",flexShrink:0}}/>}
+                        <div style={{flex:1,minWidth:0}}>
+                          <div style={{fontWeight:500,marginBottom:2,fontSize:14,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{p.title}</div>
+                          <div style={{fontSize:11,color:"#7A746C"}}>{p.category} · {p.location} · {p.year}</div>
+                        </div>
+                        {p.featured && <span style={{fontSize:10,padding:"3px 9px",background:"#FAC775",color:"#633806",whiteSpace:"nowrap"}}>ÖNE ÇIKAN</span>}
+                        <div style={{display:"flex",gap:7,flexShrink:0}}>
+                          <button className="bo" onClick={()=>startEdit(p)} style={{padding:"6px 12px",fontSize:11}}>Düzenle</button>
+                          <button onClick={()=>delProj(p.id)} style={{padding:"6px 12px",fontSize:11,background:"none",border:"1px solid rgba(163,45,45,.35)",color:"#A32D2D",cursor:"pointer"}}>Sil</button>
+                        </div>
+                      </div>
+                    ))}
+                    {projs.length===0 && <p style={{textAlign:"center",padding:48,color:"#7A746C"}}>Henüz proje eklenmemiş.</p>}
+                  </div>
+                </div>
+              ))}
+
+              {/* Ayarlar Sekmesi */}
+              {aTab==="settings" && (
+                <div style={{maxWidth:520}}>
+                  <h2 className="sf" style={{fontSize:"1.7rem",fontWeight:400,marginBottom:28}}>Site Ayarları</h2>
+                  <div style={{display:"flex",flexDirection:"column",gap:16}}>
+                    <div>
+                      <label style={{fontSize:10,letterSpacing:".15em",textTransform:"uppercase",color:"#7A746C",display:"block",marginBottom:6}}>WhatsApp Numarası (90 ile başlayan)</label>
+                      <input className="ii" value={sets.wa} onChange={e=>setSets(p=>({...p,wa:e.target.value}))} placeholder="905XXXXXXXXX"/>
+                    </div>
+                    <div>
+                      <label style={{fontSize:10,letterSpacing:".15em",textTransform:"uppercase",color:"#7A746C",display:"block",marginBottom:6}}>Instagram Kullanıcı Adı</label>
+                      <input className="ii" value={sets.ig} onChange={e=>setSets(p=>({...p,ig:e.target.value}))} placeholder="solidcankaya"/>
+                    </div>
+                    <div>
+                      <label style={{fontSize:10,letterSpacing:".15em",textTransform:"uppercase",color:"#7A746C",display:"block",marginBottom:8}}>Logo Yükle</label>
+                      <label style={{display:"inline-flex",alignItems:"center",gap:7,padding:"9px 18px",border:"1px dashed rgba(28,25,22,.3)",cursor:"pointer",fontSize:13,color:"#7A746C"}}>
+                        + Logo Seç (PNG / SVG önerilir)
+                        <input type="file" accept="image/*" onChange={e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>setSets(p=>({...p,logoUrl:ev.target.result}));r.readAsDataURL(f);}} style={{display:"none"}}/>
+                      </label>
+                      {sets.logoUrl && <img src={sets.logoUrl} alt="logo" style={{height:44,display:"block",marginTop:10,border:"1px solid var(--bd)",padding:4,background:"#fff"}}/>}
+                    </div>
+                    <button className="bg" onClick={()=>svS(sets)} style={{marginTop:6,alignSelf:"flex-start"}}>Ayarları Kaydet</button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── FOOTER ── */}
+      <footer style={{background:"#1C1916",color:"rgba(255,255,255,.65)",padding:`44px clamp(24px,5vw,80px) 28px`}}>
+        <div style={{maxWidth:1280,margin:"0 auto"}}>
+          <div style={{display:"grid",gridTemplateColumns:"2fr 1fr 1fr",gap:36,marginBottom:36}} className="fg">
+            <div>
+              <Logo style={{marginBottom:14}} logoUrl={sets.logoUrl}/>
+              <p style={{fontSize:13,lineHeight:1.8,maxWidth:260,color:"rgba(255,255,255,.5)"}}>
+                Ankara'nın köklü inşaat firmalarından biri olarak 25 yıldır kaliteli ve güvenilir yapılar inşa ediyoruz.
+              </p>
+            </div>
+            <div>
+              <h4 style={{color:"#fff",fontSize:10,letterSpacing:".2em",textTransform:"uppercase",marginBottom:14}}>Hızlı Erişim</h4>
+              {[["home","Anasayfa"],["projects","Projeler"],["about","Hakkımızda"],["contact","İletişim"]].map(([p,l]) => (
+                <button key={p} onClick={()=>nav(p)} style={{display:"block",background:"none",border:"none",color:"rgba(255,255,255,.55)",fontSize:13,cursor:"pointer",padding:"4px 0",fontFamily:"'DM Sans',sans-serif"}}>{l}</button>
+              ))}
+            </div>
+            <div>
+              <h4 style={{color:"#fff",fontSize:10,letterSpacing:".2em",textTransform:"uppercase",marginBottom:14}}>Sosyal Medya</h4>
+              <div style={{display:"flex",gap:12}}>
+                <a href={`https://wa.me/${sets.wa}`} target="_blank" style={{color:"#25D366",opacity:.8,lineHeight:0}}><WASvg/></a>
+                <a href={`https://instagram.com/${sets.ig}`} target="_blank" style={{color:"#E1306C",opacity:.8,lineHeight:0}}><IGSvg/></a>
+              </div>
+            </div>
+          </div>
+          <div style={{borderTop:"1px solid rgba(255,255,255,.07)",paddingTop:20,display:"flex",justifyContent:"space-between",flexWrap:"wrap",gap:8}}>
+            <p style={{fontSize:11}}>© 2024 Solid Çankaya İnşaat. Tüm hakları saklıdır.</p>
+            <p style={{fontSize:11}}>Çankaya / Ankara, Türkiye</p>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>
